@@ -2,7 +2,7 @@
 -minesweeper
 # wireframe
 
-
+![](./assets/minesweeper%20wireframe.png)
 
 
 ## user stories
@@ -38,4 +38,3 @@
 1. ICEBOX
  - display bomb graphics within cells(when hit)
  - flag feature
- - 
