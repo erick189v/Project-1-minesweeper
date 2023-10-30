@@ -1,0 +1,22 @@
+body {
+    font-family: fantasy;
+    font-size: bold;
+    text-align: center;
+}
+
+#grid-container{
+    width: 600px;
+    height: 600px;
+    border: 12px solid #f1bce8;
+    background-color: #84b78a;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid-container div{
+    width: 75px;
+    height: 75px;
+    border: 4px solid #99d2d7;
+}
+
