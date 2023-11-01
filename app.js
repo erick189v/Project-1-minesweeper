@@ -14,16 +14,14 @@ let flagOn = false;
 
 
 const board = document.querySelector('#grid-container')
-document.getElementById("flag-button").addEventListener("click",placeFlag)
-
 //console.log(board)
 
 
 function makeGrid(){
     
+    document.getElementById("flag-button").addEventListener("click",placeFlag)
     //populating with columns and rows
     for(let i = 0; i < grid.length; i++){
-        let row = [];
         for(let c = 0; c < grid[i].length; c++){
             //div tags created
             let newCell = document.createElement('div');
@@ -37,7 +35,11 @@ function makeGrid(){
     }
     console.log(grid);
 }
+
+
 init()
+
+
 function init(){
     grid = [
         ["1","0","0"],
@@ -49,9 +51,19 @@ function init(){
     board.removeEventListener('click', checkCell)
     board.addEventListener('click',checkCell)
 
+    board.addEventListener('click', flagCell)
+
+
+}
+
+//returns position and flag
+function checkCell(e){
+    console.log(e.target.dataset)
+
 }
 
 function placeFlag(){
+
     if (flagOn){
         flagOn = false;
         document.getElementById("flag-button").style.backgroundColor = "#84b78a";
@@ -62,9 +74,10 @@ function placeFlag(){
     }
 }
 
-//returns position and flag
-function checkCell(e){
-    console.log(e.target.dataset)
+function flagCell(e){
+
+    let newCell = e.target;
+    
     if(flagOn){
         if(newCell.innerText == ""){
             newCell.innerText = "🍬";
@@ -76,66 +89,3 @@ function checkCell(e){
 }
 
 //placing bombs
-
-function placeMines(){
-    minesLoc.push("1")
-}
-
-let newCell = this;
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-let grid;
-
-// console.log(grid)
-
-
-const board = document.querySelector('#grid-container')
-// console.log(board)
-
-
-function makeBoard(){
-
-
-  for(let i = 0;i<grid.length;i++){
-    for(let j=0;j<grid[i].length;j++){
-      let newCell = document.createElement('div')
-      // add additional attributes
-
-      newCell.setAttribute('data-x',j)
-      newCell.setAttribute('data-y',i)
-      newCell.classList.add('cell')
-      board.append(newCell)
-    }
-  }
-}
-
-
-init()
-
-function init(){
-  grid = [
-    ["0", "0", "0"],
-    ["0", "0", "0"],
-    ["0", "0", "0"],
-  ]
-  makeBoard()
-  board.removeEventListener('click', checkCell)
-  board.addEventListener('click', checkCell)
-}
-
-function checkCell (e){
-  console.log(e.target.dataset)
-  
-}
-*/
