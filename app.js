@@ -6,28 +6,32 @@ let rows;
 let columns;
 
 //bombs
-let minesCount;
-let minesLoc;
+let mines;
+let minesLocation;
 
 //flag button
 let flagOn = false;
+//let gameOver =  false;
 
+
+//function placeMines()
 
 const board = document.querySelector('#grid-container')
+document.getElementById("flag-button").addEventListener("click",placeFlag)
 //console.log(board)
 
 
+
 function makeGrid(){
-    
-    document.getElementById("flag-button").addEventListener("click",placeFlag)
+
     //populating with columns and rows
     for(let i = 0; i < grid.length; i++){
         for(let c = 0; c < grid[i].length; c++){
             //div tags created
             let newCell = document.createElement('div');
             //coordinates
-            newCell.setAttribute('data-x',c);
-            newCell.setAttribute('data-y',i);
+            newCell.setAttribute('data-c',c);
+            newCell.setAttribute('data-r',i);
             newCell.classList.add('cell')
             
             board.append(newCell)
@@ -41,10 +45,12 @@ init()
 
 
 function init(){
+    
+
     grid = [
-        ["1","0","0"],
-        ["0","0","0"],
-        ["0","1","0"],
+        ["*","",""],
+        ["","*","*"],
+        ["","",""],
     ]
     //new cell clicked
     makeGrid()
@@ -53,13 +59,41 @@ function init(){
 
     board.addEventListener('click', flagCell)
 
+    
 
 }
 
-//returns position and flag
-function checkCell(e){
-    console.log(e.target.dataset)
 
+function minesLoc(mines){
+
+
+   // console.log("you clicked a mine" + mines)
+
+}
+minesLoc("💥")
+//logs coordinates
+function checkCell(e){
+    //console.log(e.target.dataset)
+    //console.dir(e.target)
+    console.log(e.target.getAttribute("data-r"))
+    console.log(e.target.getAttribute("data-c"))
+    console.log(grid[e.target.getAttribute("data-r")][e.target.getAttribute("data-c")])
+    
+
+   /* if(r-1 >=0){
+        const neighbor = grid[r-1][c]
+        console.log(neighbor)
+        if(neighbor ===""){
+            grid[c][r] = "0"
+          return false
+        } else if (neighbor == "*"){
+            return true
+          }
+    } else {
+        return false
+     }
+     */
+    //console.log(e.target)
 }
 
 function placeFlag(){
@@ -74,6 +108,7 @@ function placeFlag(){
     }
 }
 
+//places flag
 function flagCell(e){
 
     let newCell = e.target;
@@ -85,7 +120,30 @@ function flagCell(e){
         else if(newCell.innerText == "🍬"){
             newCell.innerText = "";
         }
+        return;
     }
+    //if(minesLoc.includes(newCell.id)){
+       // alert("GAME OVER")
+        //gameOver = true;
+        //return;
+    //}
+    
 }
 
-//placing bombs
+//checking for bombs
+function checkAbove(r,c){
+    if(r-1 >=0){
+        const neighbor = grid[r-1][c]
+        console.log(neighbor)
+        if(neighbor ===""){
+            grid[c][r] = "0"
+          return false
+        } else if (neighbor == "*"){
+            return true
+          }
+    } else {
+        return false
+    }
+}
+checkAbove(1, 0)
+//console.log(grid);
