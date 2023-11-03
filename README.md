@@ -1,41 +1,43 @@
-# Project-1-minesweeper
-# choice of game is
--minesweeper
-# wireframe
 
-![](./assets/minesweeper%20wireframe.png)
+## Minesweeper Game
 
+This is a simple Minesweeper game built with HTML, CSS, and JavaScript.
 
-## user stories
-1. as a player, start game as soon as I click on a cell
-1. as a player, review or see how many bombs are left after the game is done
-1. as a player, see the score
-1. as a player, see the timer
-1. as a player, see the rules of the game.
+### How to Play
 
-## pseudocode for overall game play.
- 
-1. setup
- - state variables: bombs, flags, timer?(unsure yet), reset button
+1. Open the `index.html` file in your web browser.
+2. double-click to reveal the cells.
+3. If you think a cell contains a mine, double-click to place a flag.
 
-1. INIT
- - create grid
- - randomly assign bombs(depending on the size of the grid ex. 7x11 should contain 5-8 bombs.)
- - flag feature.
+### Features
 
-1. RENDER
- - display reset button
- - play as soon as the grid is clicked on
- - display timer
+- Double-click a cell to check the neighboring cells/ reveal a cell
+- toggle click to place a flag
+- Game ends if you click on a cell containing a mine.
 
-1. BOMB HIT
- - add listener
- - add bomb-clicked
- - display timer(after game is won)
- - display "game over" when bomb is clicked on
+### Game Controls
+- **Double Click:** Check neighboring cells/reveal cell
+- **toggle single Click:** Place a flag
 
-1. PLAY AGAIN
+### Files
 
-1. ICEBOX
- - display bomb graphics within cells(when hit)
- - flag feature
+- `index.html`: Game interface
+- `style.css`: Styling of the game
+- `script.js`: Functionality and game logic
+
+### Future Improvements
+
+- Implement a timer to track how long it takes to complete the game.
+- Add different difficulty levels.
+- Implement a scoring system.
+- add a you won!
+- add random bombs 
+- fix edge cases
+
+### Preview
+
+![](./assets/Screenshot%202023-11-03%20at%209.18.51 AM.png)
+
+### Credits
+
+This game was developed by Eraclio Vega. 

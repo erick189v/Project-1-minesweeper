@@ -88,8 +88,7 @@ function init(){
 
 //logs coordinates
 function checkCell(e){
-    //console.log(e.target.dataset)
-    //console.dir(e.target)
+    
     let r = parseInt(e.target.getAttribute("data-r")) * 1
     let c = parseInt(e.target.getAttribute("data-c")) * 1
     console.log(grid[r][c]) 
@@ -108,7 +107,7 @@ function checkCell(e){
     }
 
     
-    //near();
+    
 
     let minesNear = 0;
 
@@ -178,7 +177,7 @@ function openEmptyCells(row, col) {
     let minesNear = countMinesNear(row, col);
 
     if (minesNear === 0) {
-        currentCell.classList.add('open-empty-cell'); // Add the new class here
+        currentCell.classList.add('open-empty-cell'); 
 
         openEmptyCells(row - 1, col - 1);
         openEmptyCells(row - 1, col);
@@ -196,7 +195,7 @@ function openEmptyCells(row, col) {
 
 
 
-
+//counts and returns minesNear -- adjacent number returns
 function countMinesNear(r, c) {
     let minesNear = 0;
 
@@ -222,7 +221,7 @@ function gameOver(){
     
     location.reload()
 }
-
+//shows the bomb in each cell
 function showMines(){
 
     for( let i = 0; i < boardCells.length; i++){
