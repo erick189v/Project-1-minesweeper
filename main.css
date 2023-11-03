@@ -38,6 +38,9 @@ body {
     text-align: center;
     
 }
+.open-empty-cell {
+    background-color: lightgray; /* Change this to your desired color */
+}
 
 .n1{
     color: blue

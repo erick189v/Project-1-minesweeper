@@ -94,7 +94,7 @@ function checkCell(e){
     let c = parseInt(e.target.getAttribute("data-c")) * 1
     console.log(grid[r][c]) 
 
-    if(grid[r][c]){
+    if(grid[r][c]==="*"){
         gameOver();
         showMines();
     } else {
@@ -102,6 +102,8 @@ function checkCell(e){
 
         if (minesNear > 0) {
             e.target.innerText = minesNear;
+        } else {
+            openEmptyCells(r,c);
         }
     }
 
@@ -160,6 +162,39 @@ function checkCell(e){
     return minesNear
     
 }
+
+
+function openEmptyCells(row, col) {
+    if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || grid[row][col] !== "") {
+        return;
+    }
+
+    const currentCell = board.querySelector(`[data-r="${row}"][data-c="${col}"]`);
+
+    if (!currentCell.classList.contains('cell')) {
+        return;
+    }
+
+    let minesNear = countMinesNear(row, col);
+
+    if (minesNear === 0) {
+        currentCell.classList.add('open-empty-cell'); // Add the new class here
+
+        openEmptyCells(row - 1, col - 1);
+        openEmptyCells(row - 1, col);
+        openEmptyCells(row - 1, col + 1);
+        openEmptyCells(row, col - 1);
+        openEmptyCells(row, col + 1);
+        openEmptyCells(row + 1, col - 1);
+        openEmptyCells(row + 1, col);
+        openEmptyCells(row + 1, col + 1);
+    } else {
+        return;
+    }
+}
+
+
+
 
 
 function countMinesNear(r, c) {
