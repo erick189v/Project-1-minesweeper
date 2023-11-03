@@ -33,4 +33,35 @@ body {
     border: none;
 }
 
+.bomb{
+    font-size: 25px;
+    text-align: center;
+    
+}
+
+.n1{
+    color: blue
+}
+.n2{
+    color: goldenrod
+}
+.n3{
+    color: orange
+}
+.n4{
+    color: navy
+}
+.n5{
+    color: brown
+}
+.n6{
+    color: purple
+}
+.n7{
+    color: black
+}
+.n8{
+    color: red
+}
+
 
